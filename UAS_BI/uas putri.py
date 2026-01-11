@@ -1,7 +1,7 @@
 # %%
 # a. Extracting data from sources
 import pandas as pd
-df = pd.read_csv("C:\\Users\\ASUS\\Documents\\SEM 5\\BUSSINES INTELLIGENCE\\Data_UAS.csv")
+df = pd.read_csv("Data_UAS.csv")
 
 
 # %%
@@ -167,3 +167,4 @@ app.layout = html.Div([
 # =========================
 app.run(debug=True, port=8054)
 # %%
+
