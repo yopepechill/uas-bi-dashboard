@@ -25,12 +25,18 @@ import pandas as pd
 # DASH APP
 # =========================
 app = Dash(__name__)
-server = app.server     # <<< TARO DI SINI (WAJIB DEPLOY)
+server = app.server
 
 app.layout = html.Div([
     html.H1("Customer Churn Dashboard"),
-    dcc.Graph(...)
+    dcc.Graph(
+        id="churn-graph",
+        figure=fig
+    )
 ])
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
 # =========================
 # RUN LOCAL
@@ -167,4 +173,5 @@ app.layout = html.Div([
 # =========================
 app.run(debug=True, port=8054)
 # %%
+
 
