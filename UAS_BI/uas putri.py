@@ -3,7 +3,6 @@
 import pandas as pd
 df = pd.read_csv("Data_UAS.csv")
 
-
 # %%
 # b. Transforming data to fit analytic needs
 # Mengubah TotalCharges ke numerik & menghapus kolom yang tidak perlu
@@ -25,18 +24,12 @@ import pandas as pd
 # DASH APP
 # =========================
 app = Dash(__name__)
-server = app.server
+server = app.server     
 
 app.layout = html.Div([
     html.H1("Customer Churn Dashboard"),
-    dcc.Graph(
-        id="churn-graph",
-        figure=fig
-    )
+    dcc.Graph(figure=px.histogram(df_clean, x='tenure', title='Distribusi Tenure'))
 ])
-
-if __name__ == "__main__":
-    app.run(debug=True)
 
 # =========================
 # RUN LOCAL
@@ -119,7 +112,7 @@ fig_trend = px.line(
 # DASH APP
 # =========================
 app = Dash(__name__)
-server = app.server   # <-- PENTING untuk deploy
+server = app.server   
 
 app.layout = html.Div([
 
@@ -173,5 +166,3 @@ app.layout = html.Div([
 # =========================
 app.run(debug=True, port=8054)
 # %%
-
-
